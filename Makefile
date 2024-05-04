@@ -1,6 +1,9 @@
 up:
 	./vendor/bin/sail up -d
 
+up-foreground:
+	./vendor/bin/sail up
+
 down:
 	./vendor/bin/sail down
 
