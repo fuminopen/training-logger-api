@@ -19,6 +19,8 @@ class ExerciseResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'body_part' => new BodyPartResource($this->whenLoaded('bodyPart')),
+            'created_at' => $this->created_at->toISOString(),
+            'updated_at' => $this->updated_at->toISOString(),
         ];
     }
 }
