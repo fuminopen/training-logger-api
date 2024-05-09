@@ -3,6 +3,7 @@
 namespace Tests\Feature\Exercise;
 
 use App\Models\Exercise;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -14,19 +15,25 @@ class UpdateTest extends TestCase
 
     public function testCanUpdateExercise(): void
     {
+        $this->withoutExceptionHandling();
+
+        $user = User::factory()->create();
         $exercise = Exercise::factory()->create();
 
-        $response = $this->put(route('exercise.update', $exercise->id), [
-            'name' => $this->faker->name,
-            'description' => $this->faker->text,
+        $name = $this->faker->name;
+        $description = $this->faker->text;
+
+        $response = $this->actingAs($user)->put(route('exercises.update', $exercise->id), [
+            'name' => $name,
+            'description' => $description,
         ]);
 
         $response->assertStatus(200);
 
         $this->assertDatabaseHas('exercises', [
             'id' => $exercise->id,
-            'name' => $exercise->name,
-            'description' => $exercise->description,
+            'name' => $name,
+            'description' => $description,
         ]);
     }
 }

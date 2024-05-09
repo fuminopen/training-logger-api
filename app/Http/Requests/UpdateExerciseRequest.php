@@ -11,7 +11,7 @@ class UpdateExerciseRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,9 +22,9 @@ class UpdateExerciseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'body_part_id' => 'required|integer|exists:body_parts,id'
+            'body_part_id' => 'nullable|integer|exists:body_parts,id'
         ];
     }
 }
