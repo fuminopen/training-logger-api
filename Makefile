@@ -14,3 +14,5 @@ restart:
 shell:
 	./vendor/bin/sail exec laravel.test bash
 
+chown:
+	sudo chown -R $${USER}:$${USER} .
