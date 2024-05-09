@@ -12,7 +12,10 @@ class ExerciseController extends Controller
     // 一覧表示
     public function index()
     {
-        return ExerciseResource::collection(Exercise::all());
+        return ExerciseResource::collection(
+            Exercise::with('bodyPart')
+                ->get()
+        );
     }
 
     // 詳細表示
@@ -42,4 +45,3 @@ class ExerciseController extends Controller
         return response()->json(null, 204);
     }
 }
-
