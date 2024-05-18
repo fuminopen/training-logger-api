@@ -28,6 +28,7 @@ class ExerciseController extends Controller
     public function store(StoreExerciseRequest $request)
     {
         $exercise = Exercise::create($request->validated());
+        $exercise->load('bodyPart');
         return new ExerciseResource($exercise);
     }
 
