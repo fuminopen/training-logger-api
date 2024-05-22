@@ -32,12 +32,9 @@ class WorkoutController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Workout $workout)
     {
-        //
+        return new WorkoutResource($workout);
     }
 
     /**
