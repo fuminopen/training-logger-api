@@ -14,4 +14,4 @@ Route::resource('exercises', ExerciseController::class);
 
 Route::resource('body_parts', BodyPartController::class);
 
-Route::resource('workout', WorkoutController::class);
+Route::resource('workouts', WorkoutController::class);
