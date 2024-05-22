@@ -13,6 +13,11 @@ class BodyPartController extends Controller
         return BodyPartResource::collection(BodyPart::all());
     }
 
+    public function show(BodyPart $bodyPart)
+    {
+        return new BodyPartResource($bodyPart);
+    }
+
     public function store(StoreBodyPartRequest $request)
     {
         $bodyPart = BodyPart::create($request->validated());
