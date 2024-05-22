@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BodyPart\StoreBodyPartRequest;
 use App\Http\Requests\BodyPart\UpdateBodyPartRequest;
-use App\Http\Requests\StoreBodyPartRequest;
 use App\Http\Resources\BodyPartResource;
 use App\Models\BodyPart;
 
