@@ -30,4 +30,10 @@ class BodyPartController extends Controller
         $bodyPart->update($request->validated());
         return new BodyPartResource($bodyPart);
     }
+
+    public function destroy(BodyPart $bodyPart)
+    {
+        $bodyPart->delete();
+        return response()->json(null, 204);
+    }
 }
