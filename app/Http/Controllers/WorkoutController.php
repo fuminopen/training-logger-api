@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Workout\StoreWorkoutRequest;
+use App\Http\Requests\Workout\UpdateWorkoutRequest;
 use App\Http\Resources\WorkoutResource;
 use App\Models\Workout;
-use Illuminate\Http\Request;
 
 class WorkoutController extends Controller
 {
@@ -29,19 +29,12 @@ class WorkoutController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateWorkoutRequest $request, Workout $workout)
     {
-        //
+        $workout->update($request->validated());
+        return new WorkoutResource($workout);
     }
 
     /**
