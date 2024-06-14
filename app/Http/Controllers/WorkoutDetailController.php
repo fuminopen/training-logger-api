@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateWorkoutDetailRequest;
+use App\Http\Requests\WorkoutDetail\UpdateWorkoutDetailRequest;
 use App\Http\Requests\WorkoutDetail\StoreWorkoutDetailRequest;
 use App\Http\Resources\WorkoutDetailResource;
 use App\Models\WorkoutDetail;
-use Illuminate\Http\Request;
 
 class WorkoutDetailController extends Controller
 {
