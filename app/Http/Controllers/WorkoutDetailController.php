@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateWorkoutDetailRequest;
 use App\Http\Requests\WorkoutDetail\StoreWorkoutDetailRequest;
 use App\Http\Resources\WorkoutDetailResource;
 use App\Models\WorkoutDetail;
@@ -35,19 +36,12 @@ class WorkoutDetailController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateWorkoutDetailRequest $request, WorkoutDetail $workoutDetail)
     {
-        //
+        $workoutDetail->update($request->validated());
+        return new WorkoutDetailResource($workoutDetail);
     }
 
     /**
