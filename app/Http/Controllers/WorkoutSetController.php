@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\WorkoutSet\StoreWorkoutSetRequest;
 use App\Http\Resources\WorkoutSetResource;
 use App\Models\WorkoutSet;
 use Illuminate\Http\Request;
@@ -19,9 +20,10 @@ class WorkoutSetController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreWorkoutSetRequest $request)
     {
-        //
+        $workoutSet = WorkoutSet::create($request->validated());
+        return new WorkoutSetResource($workoutSet);
     }
 
     /**
