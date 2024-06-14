@@ -46,8 +46,9 @@ class WorkoutSetController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(WorkoutSet $workoutSet)
     {
-        //
+        $workoutSet->delete();
+        return response()->json(null, 204);
     }
 }
