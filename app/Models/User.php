@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function personalRecords()
+    {
+        return $this->hasMany(PersonalRecord::class);
+    }
 }
