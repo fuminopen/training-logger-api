@@ -19,4 +19,9 @@ class Exercise extends Model
     {
         return $this->belongsTo(BodyPart::class);
     }
+
+    public function personalRecords()
+    {
+        return $this->hasMany(PersonalRecord::class);
+    }
 }
