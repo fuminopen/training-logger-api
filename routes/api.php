@@ -5,6 +5,7 @@ use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\WorkoutController;
 use App\Http\Controllers\WorkoutDetailController;
 use App\Http\Controllers\WorkoutSetController;
+use App\Http\Controllers\PersonalRecordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,5 @@ Route::resource('workouts', WorkoutController::class);
 Route::resource('workout_details', WorkoutDetailController::class);
 
 Route::resource('workout_sets', WorkoutSetController::class);
+
+Route::apiResource('personal-records', PersonalRecordController::class);
