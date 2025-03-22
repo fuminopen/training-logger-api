@@ -12,15 +12,15 @@ class PersonalRecord extends Model
     protected $fillable = [
         'user_id',
         'exercise_id',
-        'value',
-        'unit',
-        'achieved_date',
-        'notes',
+        'weight',
+        'reps',
+        'date',
     ];
 
     protected $casts = [
-        'achieved_date' => 'date',
-        'value' => 'float',
+        'date' => 'date',
+        'weight' => 'float',
+        'reps' => 'integer',
     ];
 
     public function user()
